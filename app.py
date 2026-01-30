@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import os
 
-st.set_page_config(page_title="Minerva Billboard", page_icon="🎵", layout="wide")
+st.set_page_config(page_title="Minerva Hits - Billboard Charts", page_icon="📈", layout="wide")
+
 
 def garantir_csv():
     file_name = "billboard_hot_100.csv"
@@ -28,7 +29,7 @@ def garantir_csv():
             for rank in range(1, 11):
                 title, artist, img_id = pool[rank-1]
                 url = f"https://open.spotify.com/search/{title.replace(' ', '%20')}%20{artist.replace(' ', '%20')}"
-                img_url = "Imagens/download.png" 
+                img_url = "https://api.freelogodesign.org/assets/blog/thumb/4ddcba00db4142899d322683c681601a_1176x840.jpg?t=638369603760000000"
                 rows.append([date.strftime('%Y-%m-%d'), title, artist, rank, url, img_url])
         
         df_gen = pd.DataFrame(rows, columns=['date', 'title', 'artist', 'rank', 'spotify_url', 'img_url'])
@@ -68,7 +69,7 @@ df = garantir_csv()
 df['date'] = pd.to_datetime(df['date'])
 
 # Interface
-st.title("🎵 Minerva Hits Billboard")
+st.title("🎵 Minerva Hits Billboard Charts")
 
 with st.sidebar:
     st.header("Filtros")
