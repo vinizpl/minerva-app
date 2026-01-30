@@ -28,7 +28,7 @@ def garantir_csv():
             for rank in range(1, 11):
                 title, artist, img_id = pool[rank-1]
                 url = f"https://open.spotify.com/search/{title.replace(' ', '%20')}%20{artist.replace(' ', '%20')}"
-                img_url = f"https://images.unsplash.com/photo-{img_id}?w=200&h=200&fit=crop"
+                img_url = "Imagens/download.png" 
                 rows.append([date.strftime('%Y-%m-%d'), title, artist, rank, url, img_url])
         
         df_gen = pd.DataFrame(rows, columns=['date', 'title', 'artist', 'rank', 'spotify_url', 'img_url'])
