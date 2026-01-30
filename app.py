@@ -36,7 +36,6 @@ def garantir_csv():
         return df_gen
     return pd.read_csv(file_name)
 
-# Estilização CSS
 st.markdown("""
     <style>
     .main { background-color: #121212; }
@@ -65,7 +64,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Lógica de Dados
 df = garantir_csv()
 df['date'] = pd.to_datetime(df['date'])
 
